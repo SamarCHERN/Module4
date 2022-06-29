@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<h2>PHP</h2>
+<img src="https://pngimg.com/uploads/php/php_PNG35.png" width="200px" , height="200px">
+<p>PHP est un langage de script utilisé le plus souvent côté serveur : dans cette architecture, le serveur interprète le code PHP des pages web demandées et génère du code (HTML, XHTML, CSS par exemple) et des données (JPEG, GIF, PNG par exemple) pouvant être interprétés et rendus par un navigateur web. PHP peut également générer d'autres formats comme le WML, le SVG et le PDF.</p>
+<a href="{{path('blog_show', {id:1})}}", class="btn btn-primary">Lire la suite</a></br>
+
+<h2>PYTHON</h2>
+<img src ="https://th.bing.com/th/id/R.1ef3b7e69f05ae40d8a3047d55d295c1?rik=2gA7lIgEy2Vovw&pid=ImgRaw&r=0&sres=1&sresct=1" width="200px" , height="200px">
+<p>Python est un langage de programmation qui peut s'utiliser dans de nombreux contextes et s'adapter à tout type d'utilisation grâce à des bibliothèques spécialisées. Il est cependant particulièrement utilisé comme langage de script pour automatiser des tâches simples mais fastidieuses, comme un script qui récupérerait la météo sur Internet ou qui s'intégrerait dans un logiciel de conception assistée par ordinateur afin d'automatiser certains enchaînements d'actions répétitives (voir la section Adoption). On l'utilise également comme langage de développement de prototype lorsqu'on a besoin d'une application fonctionnelle avant de l'optimiser avec un langage de plus bas niveau. Il est particulièrement répandu dans le monde scientifique, et possède de nombreuses bibliothèques optimisées destinées au calcul numérique.</p>
+<a href="{{path('blog_show', {id:2})}}", class="btn btn-primary">Lire la suite</a></br>
+
+<h2>JAVA</h2>
+<img src="https://cdn.ndtv.com/tech/images/gadgets/java-new.png" width="200px" , height="200px">
+<P>Le langage Java reprend en grande partie la syntaxe du langage C++. Néanmoins, Java a été épuré des concepts les plus subtils du C++ et à la fois les plus déroutants, tels que les pointeurs et références, ou l’héritage multiple contourné par l’implémentation des interfaces. De même, depuis la version 8, l'arrivée des interfaces fonctionnelles introduit l'héritage multiple (sans la gestion des attributs) avec ses avantages et inconvénients tels que l'héritage en diamant. Les concepteurs ont privilégié l’approche orientée objet de sorte qu’en Java, tout est objet à l’exception des types primitifs (nombres entiers, nombres à virgule flottante, etc.) qui ont cependant leurs variantes qui héritent de l'objet Object (Integer, Float...).</P>
+<a href="{{path('blog_show', {id:3})}}", class="btn btn-primary">Lire la suite</a></br>
+{% endblock %}
+

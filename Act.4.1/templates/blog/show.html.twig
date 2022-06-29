@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{% if id ==1 %}
+<h2>PHP</h2>
+<img src="https://pngimg.com/uploads/php/php_PNG35.png" width="200px" , height="200px">
+<p>PHP est un langage de script utilisé le plus souvent côté serveur : dans cette architecture, le serveur interprète le code PHP des pages web demandées et génère du code (HTML, XHTML, CSS par exemple) et des données (JPEG, GIF, PNG par exemple) pouvant être interprétés et rendus par un navigateur web. PHP peut également générer d'autres formats comme le WML, le SVG et le PDF.</p>
+<p>The PHP language evolved without a written formal specification or standard until 2014, with the original implementation acting as the de facto standard which other implementations aimed to follow. Since 2014, work has gone on to create a formal PHP specification</p>
+
+{% elseif id ==2 %}
+<h2>PYTHON</h2>
+<img src ="https://th.bing.com/th/id/R.1ef3b7e69f05ae40d8a3047d55d295c1?rik=2gA7lIgEy2Vovw&pid=ImgRaw&r=0&sres=1&sresct=1" width="200px" , height="200px">
+<p>Python est un langage de programmation qui peut s'utiliser dans de nombreux contextes et s'adapter à tout type d'utilisation grâce à des bibliothèques spécialisées. Il est cependant particulièrement utilisé comme langage de script pour automatiser des tâches simples mais fastidieuses, comme un script qui récupérerait la météo sur Internet ou qui s'intégrerait dans un logiciel de conception assistée par ordinateur afin d'automatiser certains enchaînements d'actions répétitives (voir la section Adoption). On l'utilise également comme langage de développement de prototype lorsqu'on a besoin d'une application fonctionnelle avant de l'optimiser avec un langage de plus bas niveau. Il est particulièrement répandu dans le monde scientifique, et possède de nombreuses bibliothèques optimisées destinées au calcul numérique.</p>
+<p>The crew of a plane gets nervous when the cargo starts making noises and shifting. When one of the crew opens the crate, the pilot hears screams from the back. Something attacks him, causing the plane to crash near a town called Ruby. The cargo survives the crash and begins attacking Ruby citizens, starting with a couple named Lisa and Roberta, camping in the woods.</p>
+
+{% elseif id ==3 %}
+<h2>JAVA</h2>
+<img src="https://cdn.ndtv.com/tech/images/gadgets/java-new.png" width="200px" , height="200px">
+<P>Le langage Java reprend en grande partie la syntaxe du langage C++. Néanmoins, Java a été épuré des concepts les plus subtils du C++ et à la fois les plus déroutants, tels que les pointeurs et références, ou l’héritage multiple contourné par l’implémentation des interfaces. De même, depuis la version 8, l'arrivée des interfaces fonctionnelles introduit l'héritage multiple (sans la gestion des attributs) avec ses avantages et inconvénients tels que l'héritage en diamant. Les concepteurs ont privilégié l’approche orientée objet de sorte qu’en Java, tout est objet à l’exception des types primitifs (nombres entiers, nombres à virgule flottante, etc.) qui ont cependant leurs variantes qui héritent de l'objet Object (Integer, Float...).</P>
+<p>Java was originally developed by James Gosling at Sun Microsystems and released in May 1995 as a core component of Sun Microsystems' Java platform. The original and reference implementation Java compilers, virtual machines, and class libraries were originally released by Sun under proprietary licenses. As of May 2007, in compliance with the specifications of the Java Community Process, Sun had relicensed most of its Java technologies under the GPL-2.0-only license. Oracle offers its own HotSpot Java Virtual Machine, however the official reference implementation is the OpenJDK JVM which is free open-source software and used by most developers and is the default JVM for almost all Linux distributions</p>
+
+{% elseif id >3 %}
+<p>ERROR</p>
+{% endif %}
+{% endblock %}
