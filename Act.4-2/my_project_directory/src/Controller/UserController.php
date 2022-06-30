@@ -20,15 +20,15 @@ class UserController extends AbstractController
     }
 
      /**
-     * @Route("/create", name="app_user")
+     * @Route("/user", name="app_user")
      */
     public function createUser(ManagerRegistry $doctrine): Response
     {
         $entityManager = $doctrine->getManager();
 
         $user = new User();
-        $user->setFirstName('Samar');
-        $user->setLastName('Cherni');
+        $user->setFirstname('Samar');
+        $user->setLastname('Cherni');
         $user->setEmail('samar.cherni@talan.com');
         $user->setAdress('Ariana');
         $user->setBirthdate('28-09-95');
