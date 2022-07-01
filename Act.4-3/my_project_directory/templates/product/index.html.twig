@@ -13,7 +13,7 @@
 {% for product in products %}
    
    <div class="card mb-3">
-        <h3 class="card-header">product {{product.id}}</h3>
+        <h3 class="card-header">product de category {{product.category.id}}</h3>
         <div class="card-body">
           <h5 class="card-title">{{ product.Name}}</h5>
  </div>
@@ -25,11 +25,12 @@
     <p class="card-text">{{ product.Price}}</p>
   </div>
     <ul class="list-group list-group-flush">
-    <li class="list-group-item">{{ product.Description}}</li>
-  </ul>
-    <div class="card-footer text-muted">
+        <li class="list-group-item">{{ product.Description}}</li>
+    </ul>
+    
+  <div class="card-footer text-muted">
 
-    </div>
+  </div>
 </div>
 {% endfor %}
 

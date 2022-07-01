@@ -7,6 +7,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Category;
 use App\Entity\Product;
+use  App\Repository\ProductRepository;
+use Doctrine\Persistence\ManagerRegistry;
 
 class ProductController extends AbstractController
 {
@@ -39,13 +41,13 @@ class ProductController extends AbstractController
         //     'controller_name' => 'ProductController',
         // ]);
     }
-    /**
-     * @Route("/show", name="show")
+/**
+     * @Route("/show/{category_id}", name="get-category-products")
      */
-    public function getProduct(): Response
+    public function showProducts(ProductRepository $productRepository, int $category_id): Response
     {
-        $repo=$this->getDoctrine()->getRepository(Product::class);
-        $products=$repo->findAll();
+
+        $products = $productRepository->findBy(['category' => $category_id]);
         return $this->render('product/index.html.twig', [
             'controller_name' => 'UserController',
             'products' =>$products
