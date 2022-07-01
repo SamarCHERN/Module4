@@ -37,9 +37,6 @@ class ProductController extends AbstractController
             'Saved new product with id: '.$product->getId()
             .' and new category with id: '.$category->getId()
         );
-        // return $this->render('product/index.html.twig', [
-        //     'controller_name' => 'ProductController',
-        // ]);
     }
 /**
      * @Route("/show/{category_id}", name="get-category-products")
