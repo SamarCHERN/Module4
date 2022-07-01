@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 01 juil. 2022 à 13:39
+-- Généré le : ven. 01 juil. 2022 à 15:57
 -- Version du serveur : 10.4.24-MariaDB
 -- Version de PHP : 7.4.29
 
@@ -38,11 +38,11 @@ CREATE TABLE `category` (
 
 INSERT INTO `category` (`id`, `name`) VALUES
 (1, 'Computer Peripherals'),
-(2, 'Computer Peripherals'),
-(3, 'Computer Peripherals'),
-(4, 'Computer Peripherals'),
-(5, 'Computer Peripherals'),
-(6, 'Computer Peripherals');
+(2, 'clothes'),
+(3, 'Phones'),
+(4, 'sacs'),
+(5, 'livres'),
+(6, 'produits cosmétique');
 
 -- --------------------------------------------------------
 
@@ -83,11 +83,11 @@ CREATE TABLE `product` (
 
 INSERT INTO `product` (`id`, `category_id`, `name`, `price`, `description`) VALUES
 (1, 1, 'Keyboard', 19.99, 'Ergonomic and stylish!'),
-(2, 2, 'Keyboard', 19.99, 'Ergonomic and stylish!'),
-(3, 3, 'Keyboard', 19.99, 'Ergonomic and stylish!'),
-(4, 4, 'Keyboard', 19.99, 'Ergonomic and stylish!'),
-(5, 5, 'Keyboard', 19.99, 'Ergonomic and stylish!'),
-(6, 6, 'Keyboard', 19.99, 'Ergonomic and stylish!');
+(2, 2, 'Dress', 19.99, 'Ergonomic and stylish!'),
+(3, 3, 'Sumsung', 19.99, 'Ergonomic and stylish!'),
+(4, 2, 'Trouser', 19.99, 'Ergonomic and stylish!'),
+(5, 5, 'Livre Php', 19.99, 'Ergonomic and stylish!'),
+(6, 3, 'Iphone', 19.99, 'Ergonomic and stylish!');
 
 --
 -- Index pour les tables déchargées
