@@ -14,9 +14,15 @@ class FileController extends AbstractController
      * @Route("/create/{file_name}", name="app_file")
      */
     public function create(Filesystem $filesystem,$file_name): Response
-    {
+    {        $finder = new Finder();
+        $finder->directories()->in('../')->name('public');
+        
+        foreach ($finder as $f) {
+            $contents = $f->getRealPath();
+        
+        }
         if (!$filesystem->exists($file_name.".txt")) {
-            $filesystem->touch($file_name.".txt");
+            $filesystem->touch($contents."/".$file_name.".txt");
         }
         return new Response("New file has created !");
     }
@@ -53,18 +59,19 @@ class FileController extends AbstractController
        
     return new Response($name . ' is removed successfuly ');
     }
-            /**
-     * @Route("/urlfile", name="urlfile")
-     */
-    public function FileSystemImproved(){
+        /**
+         * @Route("/find", name="remove_text")
+         */
+    public function find( Filesystem $filesystem ): Response
+        { 
         $finder = new Finder();
-        $finder->files()->in(__DIR__);
-
-        foreach ($finder as $file) {
-        $contents = $file->getContents();
-
-        return new Response($contents);
+        $finder->directories()->in('../')->name('public');
+        
+        foreach ($finder as $f) {
+            $contents = $f->getRealPath();
+        
         }
-            }
+        return new Response($contents);
+    }
 }
 
