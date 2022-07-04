@@ -46,6 +46,19 @@ class UserRepository extends ServiceEntityRepository
             $this->_em->flush();
         }
     }
+    // public function findOneByIdJoinedToMessages(int $userId): ?User
+    // {
+    //     $entityManager = $this->getEntityManager();
+
+    //     $query = $entityManager->createQuery(
+    //         'SELECT p, c
+    //         FROM App\Entity\Messages p
+    //         INNER JOIN p.User c
+    //         WHERE p.id = :id'
+    //     )->setParameter('id', $userId);
+
+    //     return $query->getOneOrNullResult();
+    // }
 
     // /**
     //  * @return User[] Returns an array of User objects
