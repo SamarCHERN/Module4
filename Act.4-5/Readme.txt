@@ -1,2 +1,14 @@
-Travailler avec le service « FormBuilder» qui permet de travailler facillement les formulaires et 
-donc d'enregistrer et manipuler des données dans la base de données
+Les objectifs de cette activitée sont:
+- Travailler avec le service « FormBuilder» qui permet de travailler facillement les formulaires et 
+- Enregistrer et manipuler des données dans la base de données :Affichez un message de succès
+- Modifier le formulaire pour afficher une nouvelle page
+- Afficher les messages d’erreur/validation
+- Utiliser les contrainte de validation personnalisées
+- Travailler avec les Formulaires imbriqués
+
+Les differents liens a executer sont :
+** /route **
+** /form **
+** /link **
+** /equipeJ **
+** /equipe **
