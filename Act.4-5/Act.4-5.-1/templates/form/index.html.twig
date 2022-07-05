@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FormController!{% endblock %}
+
+{% block body %}
+<h1>Papiers s'il vous plait !</h1>
+{{form(formUser)}}
+{# <form action="<?php echo url_for('contact/index') ?>" method="POST">
+  <table>
+    <?php echo $form ?>
+    <tr>
+      <td colspan="2">
+        <input type="submit" />
+      </td>
+    </tr>
+  </table>
+</form> #}
+{% endblock %}
