@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 use App\Entity\User;
+use App\Entity\IdUser;
+use App\Form\FormUserType;
+use App\Form\IdFormType;
 use App\Entity\Ville;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,52 +26,56 @@ use Doctrine\ORM\EntityRepository;
 class FormController extends AbstractController
 {
     /**
+     * @Route("/", name="home")
+     */
+    public function home(): Response
+    {
+        return $this->render('form/home.html.twig', [
+            'controller_name' => 'FormulaireController',
+        ]);
+    }
+     /**
+     * @Route("/route", name="app_route")
+     */ 
+    public function route(Request $request, ManagerRegistry $doctrine): Response
+     {
+        $iduser = new IdUser();
+        $form = $this->createForm(IdFormType::class, $iduser);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $doctrine->getManager();
+            $entityManager->persist($iduser);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('home');
+        }
+        return $this->render('form/form.html.twig', [
+            'iduser' => $form->createView(),
+        ]);
+    }
+ 
+    /**
      * @Route("/form", name="app_form")
      */ 
-    public function new(Request $request): Response
-    {
-        $user = new User();
-        //$ville=new Ville();
+    public function newform(Request $request, ManagerRegistry $doctrine): Response
+     {
+        $User = new User();
+        $form = $this->createForm(FormUserType::class, $User);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+        $entityManager = $doctrine->getManager();
+        $entityManager->persist($User);
+        $entityManager->flush();
+        return $this->redirectToRoute('app_route',[
+            'user'=>$User
+        ]);
+}
+    return $this->render('form/index.html.twig', [
+        'formUser' => $form->createView(),
+        'User' => $User,
 
-        $form = $this->createFormBuilder($user)
-            ->add('Nom', TextType::class)
-            ->add('Prenom',TextType::class )
-            ->add('Age',NumberType::class, [
-                'constraints'=> [new LessThan([
-                    'value' => 100]),
-                    new GreaterThan([
-                        'value' => 1
-                    ])
-                    ]] )
-            ->add('Adresse', TextType::class, ['attr' => ['maxlength' => 255]])
-            ->add('Code_Postal',TextType::class,['attr' => ['maxlength' => 5]])
-            ->add('Ville',ChoiceType::class,[
-                'choices'=> [
-                    'Tunis' => 1,
-                    'Kef' => 2,
-                    'Ariana' => 3,
-                ],
-                // 'class' => Ville::class,
-                // 'choice_label' => function ($ville) {
-                //     return $ville->getName();
-                // }
-            ])
-            ->add('Permis_de_Conduire',ChoiceType::class,['required' => false,'choices' => [
-                'AM' => 'AM',
-                'A1' => 'A1',
-                'A2' => 'A2',
-                'A' => 'A',
-                'B1' => 'B1',
-                'B' => 'B'
-            ],
-            'expanded' => true,
-            'multiple' => true
-        ])
-            ->add('save', SubmitType::class, ['label' => 'Save'])
-            ->getForm();
-
-      return $this->render('form/index.html.twig', [
-    'formUser' =>$form->createView(),
-]);
+    ]);
     }
+
+
 }
