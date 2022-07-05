@@ -65,11 +65,12 @@ class FormController extends AbstractController
         $form = $this->createForm(FormUserType::class, $User);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-        $entityManager = $doctrine->getManager();
-        $entityManager->persist($User);
-        $entityManager->flush();
-        return $this->redirectToRoute('app_route',[
-            'user'=>$User
+            $entityManager = $doctrine->getManager();
+            $entityManager->persist($User);
+            $entityManager->flush();
+            $this->addFlash('success', 'Created!');
+            return $this->redirectToRoute('app_route',[
+                'user'=>$User
         ]);
 }
     return $this->render('form/index.html.twig', [
