@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 use App\Entity\User;
+use App\Entity\Link;
 use App\Entity\IdUser;
 use App\Form\FormUserType;
+use App\Form\LinkType;
 use App\Form\IdFormType;
 use App\Entity\Ville;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -77,5 +79,25 @@ class FormController extends AbstractController
     ]);
     }
 
+ /**
+     * @Route("/link", name="link_form")
+     */
+    public function LinkForm (Request $request, ManagerRegistry $doctrine): Response
 
-}
+    {
+        $link = new Link();
+        $form = $this->createForm(LinkType::class, $link);
+        $form->handleRequest($request);
+            if ($form->isSubmitted() && $form->isValid()) {
+                $entityManager = $doctrine->getManager();
+                $entityManager->persist($link);
+                $entityManager->flush();  
+                $this->addFlash('success', 'Created!');
+                return $this->redirectToRoute('home');
+            }
+        return $this->render('form/formlink.html.twig', [
+            'formlink' => $form->createView(),
+            'link' => $link,]);
+    
+        
+}}

@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FormController!{% endblock %}
+
+{% block body %}
+
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Well !continue !</h1>
+{{form(formEquipe)}}
+{{ form_start(formEquipe) }}
+    {{ form_row(formEquipe) }}
+    <ul class="joueurs">
+        {% for tag in formEquipe %}
+            <li>{{ form_row(formEquipe) }}</li>
+        {% endfor %}
+    </ul>
+{{ form_end(formEquipe) }}
+</div>
+{% endblock %}
