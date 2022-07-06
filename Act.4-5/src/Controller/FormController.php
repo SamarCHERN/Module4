@@ -32,9 +32,7 @@ class FormController extends AbstractController
      */
     public function home(): Response
     {
-        return $this->render('form/home.html.twig', [
-            'controller_name' => 'FormulaireController',
-        ]);
+        return $this->render('form/home.html.twig');
     }
      /**
      * @Route("/route", name="app_route")
