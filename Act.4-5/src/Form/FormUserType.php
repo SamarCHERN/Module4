@@ -37,7 +37,17 @@ class FormUserType extends AbstractType
                 ])
                 ]] )
         ->add('Adresse', TextType::class, ['attr' => ['maxlength' => 255]])
-        ->add('Code_Postal',TextType::class,['attr' => ['maxlength' => 5]])
+        ->add('Code_Postal','CodPostal', NumberType::class, [
+            'required' => true,
+            'constraints' => [new LessThan([
+                'value' => 100000,
+                'message' => 'Le code postal doit être une valeur de 5 chiffres'
+            ]),
+            new GreaterThan([
+                'value' => 9999,
+                'message' => 'Le code postal doit être une valeur de 5 chiffres'
+            ])]
+        ])
         ->add('Ville',ChoiceType::class,[
             'choices'=> [
                 'Tunis' => 1,

@@ -38,11 +38,9 @@ class EquipeController extends AbstractController
     {  
         $equipe =new Equipe();
         $joueur = new Joueur();
-        $equipe->getJoueur()->add($joueur);
-        $joueur2 = new Joueur();
+        $joueur->setNom('Youssef');
         $equipe->getJoueur()->add($joueur);
 
-        $equipe = new Equipe();
         $form = $this->createForm(EquipeType::class, $equipe);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {

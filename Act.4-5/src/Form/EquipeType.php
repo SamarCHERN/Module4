@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Equipe;
+use App\Form\JoueurType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -16,7 +17,7 @@ class EquipeType extends AbstractType
             ->add('NomEquipe')
             ->add('Ville')
             ->add('Sport')
-            ->add('Joueur', CollectionType::class, [
+            ->add('joueur', CollectionType::class, [
                 'entry_type' => JoueurType::class,
                 'entry_options' => ['label' => false],
             ]);

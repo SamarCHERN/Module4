@@ -10,12 +10,14 @@
 
 <div class="example-wrapper">
     <h1>Well !continue !</h1>
-{{form(formEquipe)}}
+{# {{form(formEquipe)}} #}
 {{ form_start(formEquipe) }}
-    {{ form_row(formEquipe) }}
+    {{ form_row(formEquipe.NomEquipe) }}
+    {{ form_row(formEquipe.Ville) }}
+    {{ form_row(formEquipe.Sport) }}
     <ul class="joueurs">
-        {% for tag in formEquipe %}
-            <li>{{ form_row(formEquipe) }}</li>
+        {% for joueur in formEquipe.joueur %}
+            <li>{{ form_row(joueur) }}</li>
         {% endfor %}
     </ul>
 {{ form_end(formEquipe) }}
