@@ -6,6 +6,7 @@ use App\Entity\Joueur;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class JoueurType extends AbstractType
 {
@@ -14,7 +15,7 @@ class JoueurType extends AbstractType
         $builder
             ->add('Nom')
             ->add('Age')
-            ->add('Equipe')
+            ;
         ;
     }
 

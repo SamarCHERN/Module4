@@ -7,19 +7,37 @@
 <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
 </style>
+<script>
+    jQuery(document).ready(function() {
+        // Get the ul that holds the collection of tags
+        var $tagsCollectionHolder = $('ul.joueurs');
+        // count the current form inputs we have (e.g. 2), use that as the new
+        // index when inserting a new item (e.g. 2)
+        $tagsCollectionHolder.data('index', $tagsCollectionHolder.find('input').length);
+
+        $('body').on('click', '.add_item_link', function(e) {
+            var $collectionHolderClass = $(e.currentTarget).data('collectionHolderClass');
+            // add a new tag form (see next code block)
+            addFormToCollection($collectionHolderClass);
+        })
+    });
+</script>
 
 <div class="example-wrapper">
-    <h1>Well !continue !</h1>
+    <h1>Il va y avoir du sport</h1>
 {# {{form(formEquipe)}} #}
 {{ form_start(formEquipe) }}
     {{ form_row(formEquipe.NomEquipe) }}
     {{ form_row(formEquipe.Ville) }}
     {{ form_row(formEquipe.Sport) }}
-    <ul class="joueurs">
+    <ul <ul class="joueurs" data-prototype="{{ form_widget(formEquipe.joueur.vars.prototype)|e('html_attr') }}"></ul>
+    <h1>Joueur</h1>
         {% for joueur in formEquipe.joueur %}
             <li>{{ form_row(joueur) }}</li>
         {% endfor %}
+        <button type="button" class="add_item_link" data-collection-holder-class="tags" margin= '2px'>Add Joueur</button>
     </ul>
+{{ form_row(formEquipe.save) }}
 {{ form_end(formEquipe) }}
 </div>
 {% endblock %}

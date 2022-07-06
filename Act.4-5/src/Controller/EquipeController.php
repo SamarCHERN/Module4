@@ -27,9 +27,7 @@ class EquipeController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('equipe/index.html.twig', [
-            'controller_name' => 'EquipeController',
-        ]);
+        return $this->render('equipe/index.html.twig');
     }
         /**
      * @Route("/equipeJ", name="equipe")
@@ -38,18 +36,22 @@ class EquipeController extends AbstractController
     {  
         $equipe =new Equipe();
         $joueur = new Joueur();
-        $joueur->setNom('Youssef');
+        // $joueur->setNom('Youssef');
+        // $joueur->setAge(35);
+        $joueur->setEquipe($equipe);
         $equipe->getJoueur()->add($joueur);
+
+
+
 
         $form = $this->createForm(EquipeType::class, $equipe);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-        $entityManager = $doctrine->getManager();
-        $entityManager->persist($equipe);
-        $entityManager->flush();
-        return $this->redirectToRoute('app_equipe',[
-            'user'=>$User
-        ]);
+            $entityManager = $doctrine->getManager();
+            $entityManager->persist($equipe);
+            $entityManager->persist($joueur);
+            $entityManager->flush();
+            return $this->redirectToRoute('app_equipe');
 }
     return $this->render('equipe/equiprJoueur.html.twig', [
         'formEquipe' => $form->createView(),
