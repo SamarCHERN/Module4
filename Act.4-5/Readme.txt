@@ -7,6 +7,12 @@ Les objectifs de cette activitée sont:
 - Utiliser les contrainte de validation personnalisées
 - Travailler avec les Formulaires imbriqués
 
+Pour installer le projet:
+-composer install
+-symfony console doctrine:database:create
+-symfony console make:migration
+-symfony console doctrine:migrations:migrate
+
 Les differents liens à executer sont :
 /route :
 /form 
