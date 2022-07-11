@@ -8,8 +8,8 @@ Les objectifs de cette activitée sont:
 - Travailler avec les Formulaires imbriqués
 
 Les differents liens à executer sont :
-** /route **
-** /form **
-** /link **
-** /equipeJ **
-** /equipe **
+/route :
+/form 
+/link 
+/equipeJ 
+/equipe 
